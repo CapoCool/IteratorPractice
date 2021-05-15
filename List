@@ -1,0 +1,11 @@
+package IteratorPractice;
+
+/* Dillan Poorman
+ * 
+ */
+
+import java.util.Iterator;
+
+public interface List<E> {
+	Iterator<E> iterator();
+}
