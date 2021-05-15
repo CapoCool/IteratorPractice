@@ -1,0 +1,53 @@
+package IteratorPractice;
+
+import java.util.Iterator;
+
+/* Dillan Poorman
+ * 
+ */
+
+public class NumberIterator implements Iterator<Number> {
+	
+	private Number[] numbers;
+	private int index;
+	
+	public NumberIterator(Number[] numberList) {
+		
+		
+		this.numbers = numberList;
+		
+	}
+	
+	public void reset() {
+		index = 0;
+	}
+
+	@Override
+	public boolean hasNext() {
+		if(index >= numbers.length || numbers[index] == null) {
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public Number next() {
+		// TODO Auto-generated method stub
+		return numbers[index++];
+	}
+	
+
+	@Override
+	public void remove() {
+		// TODO Auto-generated method stub
+		for(int i = index - 1; i < numbers.length - 1; i++) {
+			numbers[i] = numbers[i + 1];
+		}
+		
+		numbers[numbers.length - 1] = null;
+		index--;
+	}
+	
+	
+}
